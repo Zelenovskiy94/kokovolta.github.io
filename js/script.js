@@ -43,16 +43,19 @@ if(isInternetExplorer()) {
 Attention, your browser may not display this page correctly. Please use another browser`)
 }
 
-let cloud = document.querySelectorAll('.cloud');
-let cloudBottom = document.querySelector('.cloud_bottom');
-window.addEventListener('mousemove', function(e) {
-    let x = e.clientX / window.innerWidth;
-    let y = e.clientY / window.innerHeight; 
-    for(let elem of cloud) {
-        elem.style.transform = 'translate(' + x * 170 + 'px, ' + y * 150 + 'px) translateZ(0)';
-    } 
-    cloudBottom.style.transform = 'translate(' + x * 170 + 'px, ' + y * 10 + 'px) translateZ(0)';
-});
+if(window.innerWidth > 1000) {
+    let cloud = document.querySelectorAll('.cloud');
+    let cloudBottom = document.querySelector('.cloud_bottom');
+    window.addEventListener('mousemove', function(e) {
+        let x = e.clientX / window.innerWidth;
+        let y = e.clientY / window.innerHeight; 
+        for(let elem of cloud) {
+            elem.style.transform = 'translate(' + x * 170 + 'px, ' + y * 150 + 'px) translateZ(0)';
+        } 
+        cloudBottom.style.transform = 'translate(' + x * 170 + 'px, ' + y * 10 + 'px) translateZ(0)';
+    });
+}
+
 
 
 let reviewParallax = () => {
@@ -66,10 +69,10 @@ let reviewParallax = () => {
         })
     }
     if(kokoTranslate) {
-        let x = 0;
-        let y = 0;
+        // let x = 0;
+        // let y = 0;
         $(window).scroll(function(){
-            if($(this).scrollTop() > 500) {
+            if($(this).scrollTop() > 400) {
                 
                 // x = 480 - ($(this).scrollTop() - 100) / 2
                 // if(x < 0) {
