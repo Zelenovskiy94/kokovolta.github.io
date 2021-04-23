@@ -1,3 +1,5 @@
+'use sctrict'
+
 //button burger -> show\hide menu
 function showHideMenu() {
     // const btn = document.querySelector('#burger_menu');
@@ -40,3 +42,68 @@ if(isInternetExplorer()) {
     
 Attention, your browser may not display this page correctly. Please use another browser`)
 }
+
+let cloud = document.querySelectorAll('.cloud');
+let cloudBottom = document.querySelector('.cloud_bottom');
+window.addEventListener('mousemove', function(e) {
+    let x = e.clientX / window.innerWidth;
+    let y = e.clientY / window.innerHeight; 
+    for(let elem of cloud) {
+        elem.style.transform = 'translate(' + x * 170 + 'px, ' + y * 150 + 'px) translateZ(0)';
+    } 
+    cloudBottom.style.transform = 'translate(' + x * 170 + 'px, ' + y * 10 + 'px) translateZ(0)';
+});
+
+
+let reviewParallax = () => {
+    let reviewPhotos = document.querySelector('.review_photos');
+    let kokoTranslate = document.querySelector('.koko_translate')
+    if(reviewPhotos) {
+        $(window).scroll(function(){
+            if($(this).scrollTop() > 2700) {
+                reviewPhotos.style.transform = `translateY(-${($(this).scrollTop() - 2700) / 3}px) translateZ(0)`
+            }
+        })
+    }
+    if(kokoTranslate) {
+        let x = 0;
+        let y = 0;
+        $(window).scroll(function(){
+            if($(this).scrollTop() > 500) {
+                
+                // x = 480 - ($(this).scrollTop() - 100) / 2
+                // if(x < 0) {
+                //     x = 0
+                // }
+                // y = -840 + ($(this).scrollTop() - 100)
+                // if(y > 0) {
+                //     y = 0
+                // }
+                // kokoTranslate.style.transform = `translate(${x}px, ${y}px) translateZ(0)`
+                // if($(this).scrollTop() > 600) {
+                //     kokoTranslate.style.transform = `translate(${x}px, ${y}px) translateZ(0) scale(-1, 1)`
+                // }
+                kokoTranslate.classList.add('active')
+            } else {
+                kokoTranslate.classList.remove('active')
+            }
+
+
+        })
+    }
+}
+reviewParallax()
+
+let btnToTop = document.querySelector('.toTopBtn')
+$(window).scroll(function(){
+    if($(this).scrollTop() > 700) {
+        btnToTop.style.opacity = '1'
+        btnToTop.style.pointerEvents = 'visible'
+    } else {
+        btnToTop.style.opacity = '0';
+        btnToTop.style.pointerEvents = 'none'
+    }
+})
+$('.toTopBtn').on('click', function() {
+    $('html, body').stop().animate({scrollTop : 0}, 300);
+});
