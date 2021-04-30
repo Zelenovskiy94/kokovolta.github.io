@@ -22,9 +22,12 @@ let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0005 };
 
 let touchInput = false;
 
-generate();
-resize();
-step();
+if(window.innerWidth > 1000) {
+  generate();
+  resize();
+  step();
+}
+
 
 window.onresize = resize;
 product_type_ports.onmousemove = onMouseMove;
