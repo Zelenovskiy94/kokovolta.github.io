@@ -61,38 +61,49 @@ if(window.innerWidth > 1000) {
 let reviewParallax = () => {
     let reviewPhotos = document.querySelector('.review_photos');
     let kokoTranslate = document.querySelector('.koko_translate')
-    if(reviewPhotos) {
+    if(reviewPhotos && reviewPhotos.classList.contains('main_page') && window.innerWidth > 1000) {
         $(window).scroll(function(){
             if($(this).scrollTop() > 2700) {
                 reviewPhotos.style.transform = `translateY(-${($(this).scrollTop() - 2700) / 3}px) translateZ(0)`
             }
         })
     }
-    if(kokoTranslate) {
-        // let x = 0;
-        // let y = 0;
+    if(reviewPhotos && reviewPhotos.classList.contains('product_page') && window.innerWidth > 1000) {
         $(window).scroll(function(){
-            if($(this).scrollTop() > 400) {
-                
-                // x = 480 - ($(this).scrollTop() - 100) / 2
-                // if(x < 0) {
-                //     x = 0
-                // }
-                // y = -840 + ($(this).scrollTop() - 100)
-                // if(y > 0) {
-                //     y = 0
-                // }
-                // kokoTranslate.style.transform = `translate(${x}px, ${y}px) translateZ(0)`
-                // if($(this).scrollTop() > 600) {
-                //     kokoTranslate.style.transform = `translate(${x}px, ${y}px) translateZ(0) scale(-1, 1)`
-                // }
-                kokoTranslate.classList.add('active')
-            } else {
-                kokoTranslate.classList.remove('active')
+            if($(this).scrollTop() > 6600) {
+                reviewPhotos.style.transform = `translateY(-${($(this).scrollTop() - 6000 ) / 3}px) translateZ(0)`
             }
+        })
+    }
+    if(kokoTranslate && window.innerWidth > 1050) {
+        let x = 0;
+        let y = 0;
+        $(window).scroll(function(){
+            if($(this).scrollTop() > 100) {
+                
+                x = 480 - ($(this).scrollTop() - 100) / 2
+                if(x < 0) {
+                    x = 0
+                }
+                y = -840 + ($(this).scrollTop() - 100) / 1.1
+
+                if(y > 0) {
+                    y = 0
+                }
+                kokoTranslate.style.transform = `translate(${x}px, ${y}px) translateZ(0)`
+                if($(this).scrollTop() > 600) {
+                    kokoTranslate.style.transform = `translate(${x}px, ${y}px) translateZ(0) scale(-1, 1)`
+                }
+                // kokoTranslate.classList.add('active')
+            } 
+            // else {
+            //     kokoTranslate.classList.remove('active')
+            // }
 
 
         })
+    } else if(kokoTranslate && window.innerWidth < 1050) {
+        kokoTranslate.style.display = 'none'
     }
 }
 reviewParallax()
@@ -110,3 +121,120 @@ $(window).scroll(function(){
 $('.toTopBtn').on('click', function() {
     $('html, body').stop().animate({scrollTop : 0}, 300);
 });
+
+
+const fast_charge_block = document.querySelector('.fast_charge_block')
+let charging_kokovolta = ''
+let charging_other = ''
+let charging_kokovolta_span = ''
+let charging_other_span =''
+if(fast_charge_block) {
+    charging_kokovoltaBlock = fast_charge_block.querySelector('.charging_kokovolta')
+    charging_kokovolta = fast_charge_block.querySelector('.charging_kokovolta .charging_wrap div')
+    charging_other = fast_charge_block.querySelector('.charging_other .charging_wrap div')
+    charging_kokovolta_span = fast_charge_block.querySelector('.charging_kokovolta .charging_wrap>span')
+    charging_other_span = fast_charge_block.querySelector('.charging_other .charging_wrap>span')  
+    let kabel = document.querySelector('.kabel')
+    let charging_block = document.querySelector('.charging_block')
+    let isStartAnimation = true
+    let scroll = 2850
+    if(window.innerWidth < 750) {
+        scroll = 2700
+    }
+    if(window.innerWidth < 399) {
+        scroll = 2300
+    }
+    $(window).scroll(function(){
+        if($(this).scrollTop() > scroll && isStartAnimation) {
+            kabel.className = 'kabel active'
+            isStartAnimation = false   
+            setTimeout(function(){
+                charging_block.className = 'charging_block active'
+            }, 1100)
+
+            setTimeout(function(){
+                animateCharging() 
+            }, 1500)
+             
+        }
+    })
+}
+let widthChargingKoko = 0
+let widthChargingOther = 0
+let requestChargin = true;
+let animateCharging = () => {
+    if(widthChargingKoko > 100) {
+        widthChargingKoko = 100
+        window.cancelAnimationFrame(requestChargin)
+        requestChargin = undefined
+        charging_kokovoltaBlock.classList.add('win')
+    }
+    charging_kokovolta.style.width = widthChargingKoko + '%'
+    charging_kokovolta_span.textContent = Math.round(widthChargingKoko) + '% kokovolta'
+
+    charging_other.style.width = widthChargingOther + '%'
+    charging_other_span.textContent = Math.round(widthChargingOther) + '% other'
+    widthChargingKoko += 0.2
+    widthChargingOther += 0.11
+    if(requestChargin) {
+        requestChargin = window.requestAnimationFrame(animateCharging)
+    }
+}
+if(window.innerWidth > 930) {
+    const swiperProduct = new Swiper('.you_get_slider', {
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }, 
+          pagination: {
+            el: '.swiper-pagination',
+            type: 'fraction',
+          },
+      
+      });
+}
+
+if(window.innerWidth < 930) {
+const swiperScroll = new Swiper('.sliderScroll', {
+    slidesPerView: 'auto',
+    spaceBetween: 20,
+    // centeredSlides: true,
+    scrollbar: {
+        el: '.swiper-scrollbar',
+        clickable: true,
+        
+      },
+  });
+}
+if(window.innerWidth > 930) {
+const verticalSwiper = new Swiper('.vertical_slider', {
+    direction: 'vertical',
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    mousewheel: true,
+});
+}
+
+  function createLineSvg () {
+      let line = document.querySelectorAll('.svg_line')
+    for(let i of line) {
+        i.innerHTML = `<polyline points="0,38 ${window.innerWidth / 2},38 ${window.innerWidth / 2 + 40},2  ${window.innerWidth},2" stroke="rgba(255,255,255,0.4)" fill="none"/>`
+    }
+  }createLineSvg () 
+
+
+  function resize() {
+    createLineSvg () 
+  }
+
+  window.onresize = resize
+
+function footerMobileMenu() {
+    if(window.innerWidth < 630) {
+        $('.footer_top_right > ul h3').click(function (event) {
+            $(this).toggleClass('active')
+            $(this).next().slideToggle();
+            event.stopPropagation();
+        });
+    }
+}footerMobileMenu()
