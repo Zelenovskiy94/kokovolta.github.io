@@ -87,6 +87,10 @@ h3 {
   font-weight: 400;
 }
 
+h4 {
+  font-size: 27px;
+}
+
 h5 {
   font-size: 23px;
   font-weight: 700;
@@ -163,8 +167,10 @@ section {
 
 header {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  -webkit-box-shadow: 0px 98px 114px 18px #222222;
-  box-shadow: 0px 98px 114px 18px #222222;
+  -webkit-box-shadow: 0px 16px 41px 26px #222226;
+  box-shadow: 0px 16px 41px 26px #222226;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
   position: relative;
   z-index: 10;
   height: 142px;
@@ -711,8 +717,8 @@ header .wrap_header__ask--btn button div {
 .choose_your__gadget {
   position: relative;
   z-index: 5;
-  -webkit-box-shadow: 0px -51px 69px 36px #222226;
-  box-shadow: 0px -51px 69px 36px #222226;
+  -webkit-box-shadow: 0px -19px 41px 26px #222226;
+  box-shadow: 0px -19px 41px 26px #222226;
 }
 
 .choose_your__gadget .wrapper {
@@ -1003,6 +1009,30 @@ header .wrap_header__ask--btn button div {
   top: -90px;
 }
 
+.our_products_block.about_page {
+  background: transparent;
+  -webkit-transform: skewY(0);
+  -ms-transform: skewY(0);
+  transform: skewY(0);
+  top: 0;
+}
+
+.our_products_block.about_page .wrapper {
+  padding-top: 50px;
+}
+
+.our_products_block.about_page .koko_sit,
+.our_products_block.about_page .wrapper {
+  -webkit-transform: skew(0);
+  -ms-transform: skew(0);
+  transform: skew(0);
+}
+
+.our_products_block.about_page:before,
+.our_products_block.about_page:after {
+  display: none;
+}
+
 .our_products_block:before {
   position: absolute;
   content: '';
@@ -1182,40 +1212,6 @@ header .wrap_header__ask--btn button div {
   align-items: center;
   border-radius: 50%;
   background-color: #F8A51B;
-}
-
-.reviews_main_block .wrapper .btn_review_more {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 60px;
-}
-
-.reviews_main_block .wrapper .btn_review_more svg {
-  margin-right: 35px;
-}
-
-.reviews_main_block .wrapper .btn_review_more a:hover .btn_more_border {
-  stroke: #d721ff;
-}
-
-.reviews_main_block .wrapper .btn_review_more .btn_more_border {
-  -webkit-transition: 0.5s ease;
-  -o-transition: 0.5s ease;
-  transition: 0.5s ease;
-}
-
-.reviews_main_block .wrapper .btn_review_more .btn_more_text {
-  fill: #fff;
-  font-weight: 700;
-  font-size: 24px;
-}
-
-.reviews_main_block .wrapper .btn_review_more span {
-  font-size: 25px;
 }
 
 .reviews_main_block .wrapper .review_photos {
@@ -1499,9 +1495,54 @@ header .wrap_header__ask--btn button div {
   transition: 0.3s ease;
 }
 
+.btn_review_more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.btn_review_more svg {
+  margin-right: 35px;
+}
+
+.btn_review_more g {
+  cursor: pointer;
+}
+
+.btn_review_more a:hover .btn_more_border,
+.btn_review_more g:hover .btn_more_border {
+  stroke: #d721ff;
+}
+
+.btn_review_more .btn_more_border {
+  -webkit-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  transition: 0.5s ease;
+}
+
+.btn_review_more .btn_more_text {
+  fill: #fff;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.btn_review_more span {
+  font-size: 25px;
+}
+
 .link_top {
   position: relative;
   z-index: 15;
+}
+
+.link_top.bg_grey {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
 }
 
 .link_top .wrapper {
@@ -1564,6 +1605,7 @@ header .wrap_header__ask--btn button div {
 
 .link_top ul li a {
   color: rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
 }
 
 .link_top ul li a:hover {
@@ -1802,7 +1844,7 @@ header .wrap_header__ask--btn button div {
 
 .cloud {
   width: 1000px;
-  height: 1000px;
+  height: 1200px;
   position: absolute;
   z-index: 10;
   -webkit-transform: translateZ(0);
@@ -1810,8 +1852,24 @@ header .wrap_header__ask--btn button div {
   opacity: 0.5;
   -webkit-filter: blur(100px);
   filter: blur(100px);
-  top: calc(50% - 1000px / 2);
+  top: calc(50% - 1200px / 2);
   pointer-events: none;
+}
+
+.cloud_mini {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  -webkit-filter: blur(20px);
+  filter: blur(20px);
+  opacity: 0.5;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+.cloud_mini_purple {
+  background: -o-radial-gradient(50% 50%, 41.76% 41.76%, #FF4BED 0%, rgba(146, 42, 153, 0.3) 100%);
+  background: radial-gradient(41.76% 41.76% at 50% 50%, #FF4BED 0%, rgba(146, 42, 153, 0.3) 100%);
 }
 
 .cloud_top {
@@ -1838,7 +1896,7 @@ header .wrap_header__ask--btn button div {
 }
 
 .cloud_right {
-  right: -800px;
+  right: -650px;
 }
 
 .cloud_small {
@@ -1849,6 +1907,33 @@ header .wrap_header__ask--btn button div {
 .cloud_top_small {
   left: calc(50% - 800px / 2);
   top: 0;
+}
+
+.choice_icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  border-radius: 50%;
+  width: 135px;
+  min-width: 135px;
+  height: 135px;
+  background-color: #F8A51B;
+  position: absolute;
+  right: -50px;
+  z-index: 10;
+  -webkit-transform: rotate(19deg);
+  -ms-transform: rotate(19deg);
+  transform: rotate(19deg);
 }
 
 .cloud_blue_bottom {
@@ -2199,6 +2284,20 @@ footer .wrapper .footer_bottom .footer_bot_right img {
   width: 100%;
 }
 
+.bg_lines_svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.parallax {
+  position: absolute;
+}
+
 @supports (-webkit-appearance:none) {
 
 }
@@ -2251,11 +2350,15 @@ footer .wrapper .footer_bottom .footer_bot_right img {
   }
 
   h2 {
-    font-size: 52px;
+    font-size: 50px;
   }
 
   h3 {
     font-size: 34px;
+  }
+
+  h4 {
+    font-size: 26px;
   }
 
   .wrapper {
@@ -2397,6 +2500,24 @@ footer .wrapper .footer_bottom .footer_bot_right img {
     box-sizing: border-box;
   }
 
+  .choice_icon {
+    width: 80px;
+    min-width: 80px;
+    height: 80px;
+  }
+
+  .choice_icon picture {
+    width: 40%;
+  }
+
+  .choice_icon img {
+    width: 100%;
+  }
+
+  .choice_icon span {
+    font-size: 12px;
+  }
+
   footer .wrapper .footer_top .footer_top_right {
     width: 100%;
   }
@@ -2435,11 +2556,15 @@ footer .wrapper .footer_bottom .footer_bot_right img {
   }
 
   h2 {
-    font-size: 48px;
+    font-size: 40px;
   }
 
   h3 {
     font-size: 30px;
+  }
+
+  h4 {
+    font-size: 24px;
   }
 
   .main_section .main_mobile_koko {
@@ -2727,6 +2852,10 @@ footer .wrapper .footer_bottom .footer_bot_right img {
     position: relative;
   }
 
+  .choice_icon {
+    right: 20px;
+  }
+
 @supports (-webkit-appearance:none) {
 
 }
@@ -2811,16 +2940,24 @@ footer .wrapper .footer_bottom .footer_bot_right img {
 }
 
 @media (max-width: 700px) {
+  p {
+    font-size: 16px;
+  }
+
   h1 {
     font-size: 38px;
   }
 
   h2 {
-    font-size: 42px;
+    font-size: 35px;
   }
 
   h3 {
     font-size: 26px;
+  }
+
+  h4 {
+    font-size: 21px;
   }
 
   .reviews_main_block {
@@ -3013,6 +3150,14 @@ footer .wrapper .footer_bottom .footer_bot_right img {
     font-size: 15px;
   }
 
+  .cloud_bottom {
+    display: none;
+  }
+
+  footer {
+    border-radius: 30px 30px 0px 0px;
+  }
+
   footer .wrapper .footer_top .footer_top_right {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -3160,6 +3305,10 @@ footer .wrapper .footer_bottom .footer_bot_right img {
 }
 
 @media (max-width: 600px) {
+  .link_top ul .btn_back {
+    display: none;
+  }
+
   footer .wrapper .footer_top .footer_top_left .footer_logo span {
     font-size: 12px;
     margin-top: -20px;
@@ -3232,11 +3381,15 @@ footer .wrapper .footer_bottom .footer_bot_right img {
   }
 
   h2 {
-    font-size: 39px;
+    font-size: 30px;
   }
 
   h3 {
     font-size: 22px;
+  }
+
+  h4 {
+    font-size: 19px;
   }
 
   header .nav_menu ul a {
@@ -3279,6 +3432,10 @@ footer .wrapper .footer_bottom .footer_bot_right img {
 }
 
 @media (max-width: 450px) {
+  p {
+    font-size: 13px;
+  }
+
   .main_section .main_mobile_koko {
     width: 400px;
   }
@@ -3322,11 +3479,15 @@ footer .wrapper .footer_bottom .footer_bot_right img {
   }
 
   h2 {
-    font-size: 28px;
+    font-size: 25px;
   }
 
   h3 {
     font-size: 20px;
+  }
+
+  h4 {
+    font-size: 18px;
   }
 
 @supports (-webkit-appearance:none) {

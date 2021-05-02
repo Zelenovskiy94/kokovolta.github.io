@@ -44,7 +44,7 @@ Attention, your browser may not display this page correctly. Please use another 
 }
 
 if(window.innerWidth > 1000) {
-    let cloud = document.querySelectorAll('.cloud');
+    let cloud = document.querySelectorAll('.parallax_move');
     let cloudBottom = document.querySelector('.cloud_bottom');
     window.addEventListener('mousemove', function(e) {
         let x = e.clientX / window.innerWidth;
@@ -60,7 +60,10 @@ if(window.innerWidth > 1000) {
 
 let reviewParallax = () => {
     let reviewPhotos = document.querySelector('.review_photos');
-    let kokoTranslate = document.querySelector('.koko_translate')
+    let kokoTranslate = document.querySelector('.koko_translate');
+    let timeline = document.querySelector('.timeline_items');
+    let achievments = document.querySelector('.achievments_items');
+    
     if(reviewPhotos && reviewPhotos.classList.contains('main_page') && window.innerWidth > 1000) {
         $(window).scroll(function(){
             if($(this).scrollTop() > 2700) {
@@ -104,6 +107,24 @@ let reviewParallax = () => {
         })
     } else if(kokoTranslate && window.innerWidth < 1050) {
         kokoTranslate.style.display = 'none'
+    }
+    if(timeline  && window.innerWidth > 930) {
+        let x = 150
+        $(window).scroll(function(){
+            x = 150 - ($(this).scrollTop() - 1700 ) / 8
+            if($(this).scrollTop() > 1700 && x >= 0) {
+                timeline.style.transform = `translateX(${x}px) translateZ(0)`
+            }
+        })
+    }
+    if(achievments  && window.innerWidth > 930) {
+        let x = 160
+        $(window).scroll(function(){
+            x = 160 - ($(this).scrollTop() - 3500 ) / 8
+            if($(this).scrollTop() > 3500 && x >= 0) {
+                achievments.style.transform = `translateX(${x}px) translateZ(0)`
+            }
+        })
     }
 }
 reviewParallax()
@@ -181,7 +202,7 @@ let animateCharging = () => {
     }
 }
 if(window.innerWidth > 930) {
-    const swiperProduct = new Swiper('.you_get_slider', {
+    const swiperProduct = new Swiper('.sliderButtuns', {
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
@@ -189,6 +210,17 @@ if(window.innerWidth > 930) {
           pagination: {
             el: '.swiper-pagination',
             type: 'fraction',
+          },
+      
+      });
+}
+if(window.innerWidth > 930) {
+    const swiperTeam = new Swiper('.team_photos--wrap', {
+        slidesPerView: 'auto',
+        spaceBetween: 40,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
           },
       
       });
@@ -214,17 +246,51 @@ const verticalSwiper = new Swiper('.vertical_slider', {
     mousewheel: true,
 });
 }
+let lineBlock = document.querySelectorAll('.bg_lines_svg')
 
-  function createLineSvg () {
-      let line = document.querySelectorAll('.svg_line')
-    for(let i of line) {
-        i.innerHTML = `<polyline points="0,38 ${window.innerWidth / 2},38 ${window.innerWidth / 2 + 40},2  ${window.innerWidth},2" stroke="rgba(255,255,255,0.4)" fill="none"/>`
-    }
-  }createLineSvg () 
+  function createLinesSvg (lineBlock) {
+      lineBlock.innerHTML = ''
+      let parent = lineBlock.parentNode
+      let width = parent.offsetWidth
+      let height = parent.offsetHeight
+      let colorStroke = 'rgba(255,255,255, 0.2)'
+      let widthStroke = '1'
+        for(let i = 0; i <= width; i+=320 ) {
+            let line1 = document.createElementNS("http://www.w3.org/2000/svg",'line')
+            line1.setAttribute('x1', i)
+            line1.setAttribute('y1', 0)
+            line1.setAttribute('x2', i)
+            line1.setAttribute('y2', height)
+            line1.setAttribute('stroke', colorStroke)
+            line1.setAttribute('stroke-width', widthStroke)
+            
+            lineBlock.appendChild(line1)
+        }
+        for(let i = 0; i <= height; i+=290 ) {
+            let line2 = document.createElementNS("http://www.w3.org/2000/svg",'line')
+            line2.setAttribute('x1', 0)
+            line2.setAttribute('y1', i)
+            line2.setAttribute('x2', width)
+            line2.setAttribute('y2', i)
+            line2.setAttribute('stroke', colorStroke)
+            line2.setAttribute('stroke-width', widthStroke)
+            
+            lineBlock.appendChild(line2)
+        }
+  }
+    if(lineBlock && window.innerWidth > 700) {
+        for(let elem of lineBlock) {
+            createLinesSvg (elem) 
+        }
+    } 
 
 
   function resize() {
-    createLineSvg () 
+    if(lineBlock && window.innerWidth > 700) {
+        for(let i = 0; i <= lineBlock.length; i++) {
+            createLinesSvg (lineBlock[i]) 
+        }
+    } 
   }
 
   window.onresize = resize
@@ -238,3 +304,60 @@ function footerMobileMenu() {
         });
     }
 }footerMobileMenu()
+
+if(window.innerWidth > 930) {
+    SmoothScroll({
+        // Время скролла 400 = 0.4 секунды
+        animationTime    : 800,
+        // Размер шага в пикселях 
+        stepSize         : 75,
+    
+        // Дополнительные настройки:
+        
+        // Ускорение 
+        accelerationDelta : 30,  
+        // Максимальное ускорение
+        accelerationMax   : 2,   
+    
+        // Поддержка клавиатуры
+        keyboardSupport   : true,  
+        // Шаг скролла стрелками на клавиатуре в пикселях
+        arrowScroll       : 50,
+    
+        // Pulse (less tweakable)
+        // ratio of "tail" to "acceleration"
+        pulseAlgorithm   : true,
+        pulseScale       : 4,
+        pulseNormalize   : 1,
+    
+        // Поддержка тачпада
+        touchpadSupport   : true,
+    })
+}
+
+
+function counterNumbers(elem, speed, round) {
+
+    $(elem).each(function () {
+        
+        $(this).prop('Counter',0).animate({
+        Counter: $(this).text()
+        }, {
+        duration: speed,
+        easing: 'swing',
+        step: function (now) {
+            $(this).text(round ? +now.toFixed(1) : Math.ceil(now));
+        }
+        });
+    });
+    }
+let isCountActivate = true
+if($('.about_count_block') ) {
+    $(window).scroll(function(){
+        if($(this).scrollTop() > 300 && isCountActivate) {
+            isCountActivate = false
+            counterNumbers('.count_number', 3000, false)
+            counterNumbers('.count_number_fixed', 3000, true)            
+        }
+    })
+}
