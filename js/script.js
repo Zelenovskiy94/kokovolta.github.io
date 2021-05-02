@@ -278,15 +278,15 @@ let lineBlock = document.querySelectorAll('.bg_lines_svg')
             lineBlock.appendChild(line2)
         }
   }
-    if(lineBlock && window.innerWidth > 700) {
+    if(lineBlock.length && window.innerWidth > 700) {
         for(let elem of lineBlock) {
-            createLinesSvg (elem) 
+            createLinesSvg(elem) 
         }
     } 
 
 
   function resize() {
-    if(lineBlock && window.innerWidth > 700) {
+    if(lineBlock.length && window.innerWidth > 700) {
         for(let i = 0; i <= lineBlock.length; i++) {
             createLinesSvg (lineBlock[i]) 
         }

@@ -106,11 +106,11 @@ function recycleStar( star ) {
 }
 
 function resize() {
-
+  console.log(product_type_ports.offsetHeight)
   scale = window.devicePixelRatio || 1;
 
-  width = window.innerWidth * scale;
-  height = product_type_ports.offsetHeight * scale;
+  width = window.innerWidth ;
+  height = product_type_ports.offsetHeight ;
 
   canvas.width = width;
   canvas.height = height;
