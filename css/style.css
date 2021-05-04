@@ -1866,13 +1866,13 @@ header .wrap_header__ask--btn button div {
 }
 
 .cloud_mini_purple {
-  background: url(../img/cloud/cloud_blue.svg) center no-repeat;
-  background-size: contain;
+  background: -o-radial-gradient(50% 50%, 41.76% 41.76%, #FF4BED 0%, rgba(146, 42, 153, 0.3) 100%);
+  background: radial-gradient(41.76% 41.76% at 50% 50%, #FF4BED 0%, rgba(146, 42, 153, 0.3) 100%);
 }
 
 .cloud_mini_blue {
-  background: url(../img/cloud/cloud_purple.svg) center no-repeat;
-  background-size: contain;
+  background: -o-radial-gradient(50% 50%, 41.76% 41.76%, #11C7FE 0%, rgba(16, 200, 255, 0.22) 100%);
+  background: radial-gradient(41.76% 41.76% at 50% 50%, #11C7FE 0%, rgba(16, 200, 255, 0.22) 100%);
 }
 
 .cloud_top {
@@ -1885,13 +1885,13 @@ header .wrap_header__ask--btn button div {
 }
 
 .cloud_purple {
-  background: -o-radial-gradient(50% 50%, 41.76% 41.76%, #922A99 0%, rgba(146, 42, 153, 0.3) 100%);
-  background: radial-gradient(41.76% 41.76% at 50% 50%, #922A99 0%, rgba(146, 42, 153, 0.3) 100%);
+  background: url(../img/cloud/cloud_purple.svg) center no-repeat;
+  background-size: contain;
 }
 
 .cloud_blue {
-  background: -o-radial-gradient(50% 50%, 41.76% 41.76%, #11C7FE 0%, rgba(16, 200, 255, 0.22) 100%);
-  background: radial-gradient(41.76% 41.76% at 50% 50%, #11C7FE 0%, rgba(16, 200, 255, 0.22) 100%);
+  background: url(../img/cloud/cloud_blue.svg) center no-repeat;
+  background-size: contain;
 }
 
 .cloud_left {
@@ -2324,12 +2324,12 @@ footer .wrapper .footer_bottom .footer_bot_right img {
 }
 
 @supports (-webkit-appearance:none) {
-  .cloud_mini_purple {
-    background: url(../img/cloud/cloud_blue.svg) center no-repeat;
+  .cloud_purple {
+    background: url(../img/cloud/cloud_purple.svg) center no-repeat;
   }
 
-  .cloud_mini_blue {
-    background: url(../img/cloud/cloud_purple.svg) center no-repeat;
+  .cloud_blue {
+    background: url(../img/cloud/cloud_blue.svg) center no-repeat;
   }
 }
 
