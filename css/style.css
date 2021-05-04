@@ -1088,6 +1088,11 @@ header .wrap_header__ask--btn button div {
   z-index: -1;
 }
 
+.our_products_block .wrapper .animation_block .animation_rect {
+  -webkit-animation-name: animRect2;
+  animation-name: animRect2;
+}
+
 .our_products_block .wrapper h2 {
   max-width: 600px;
   position: relative;
@@ -1642,6 +1647,8 @@ header .wrap_header__ask--btn button div {
   position: absolute;
   right: -2px;
   width: 4px;
+  -webkit-animation-name: animRect;
+  animation-name: animRect;
   pointer-events: none;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -2321,16 +2328,6 @@ footer .wrapper .footer_bottom .footer_bot_right img {
 }
 
 @media (min-width: 600px) {
-  .our_products_block .wrapper .animation_block .animation_rect {
-    -webkit-animation-name: animRect2;
-    animation-name: animRect2;
-  }
-
-  .animation_block .animation_rect {
-    -webkit-animation-name: animRect;
-    animation-name: animRect;
-  }
-
   footer {
     -webkit-animation: gradient 15s ease infinite;
     animation: gradient 15s ease infinite;
@@ -3380,7 +3377,7 @@ footer .wrapper .footer_bottom .footer_bot_right img {
   }
 
   .cloud {
-    display: none;
+    display: none !important;
   }
 
   footer .wrapper .footer_top .footer_top_left .footer_logo span {
