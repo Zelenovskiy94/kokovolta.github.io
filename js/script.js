@@ -419,6 +419,9 @@ function getAndroidVersion(ua) {
     var match = ua.match(/android\s([0-9\.]*)/i);
     return match ? match[1] : undefined;
 };
-alert(getAndroidVersion())
+if(parseInt(getAndroidVersion(), 10) < 8) {
+    $('.cloud').css('display', 'none')
+}
+
 
 reviewParallax()
