@@ -3379,6 +3379,10 @@ footer .wrapper .footer_bottom .footer_bot_right img {
     display: none;
   }
 
+  .cloud {
+    display: none;
+  }
+
   footer .wrapper .footer_top .footer_top_left .footer_logo span {
     font-size: 12px;
     margin-top: -20px;
