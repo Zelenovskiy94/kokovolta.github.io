@@ -39,30 +39,6 @@ main {
   margin-top: 40px;
 }
 
-.number_block {
-  width: 740px;
-  height: 500px;
-  position: absolute;
-  z-index: 0;
-  top: 70px;
-  right: -110px;
-}
-
-.number_block img {
-  position: absolute;
-  z-index: 1;
-  left: calc(50% - 70% / 2);
-  top: 0;
-  width: 70%;
-}
-
-.number_block svg text {
-  -webkit-filter: drop-shadow(0 0 6px #CC2BFF);
-  filter: drop-shadow(0 0 6px #CC2BFF);
-  font-size: 600px;
-  stroke-width: 6px;
-}
-
 .testdrive_block .wrapper h1 {
   max-width: 511px;
 }
@@ -113,6 +89,10 @@ main {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
+}
+
+.delivery_items .delivery_item span {
+  font-size: 16px;
 }
 
 .delivery_items .delivery_item .delivery_item--img {
@@ -241,6 +221,15 @@ main {
   margin-bottom: 25px;
 }
 
+.contact_items {
+  max-width: 630px;
+}
+
+.contact_items .contact_item {
+  width: auto;
+  max-width: 320px;
+}
+
 @supports (-webkit-appearance:none) {
 
 }
@@ -257,17 +246,6 @@ main {
 }
 
 @media (max-width: 1200px) {
-  .number_block {
-    width: 640px;
-    height: 440px;
-    right: 20px;
-    opacity: 0.9;
-  }
-
-  .number_block svg text {
-    font-size: 520px;
-  }
-
   .testdrive_block .wrapper .number_block {
     width: 900px;
     height: 440px;
@@ -307,11 +285,6 @@ main {
 }
 
 @media (max-width: 830px) {
-  .number_block {
-    position: relative;
-    margin: 0 auto;
-  }
-
   .testdrive_block .wrapper .number_block {
     position: relative;
     margin: 0 auto;
@@ -339,14 +312,14 @@ main {
     font-size: 18px;
   }
 
-  .number_block {
-    width: 380px;
-    height: 240px;
-    top: 30px;
+  .delivery_items .delivery_item span {
+    font-size: 14px;
   }
 
-  .number_block svg text {
-    font-size: 300px;
+  .delivery_items .delivery_item .delivery_item--img {
+    -webkit-transform: scale(0.8);
+    -ms-transform: scale(0.8);
+    transform: scale(0.8);
   }
 
 @supports (-webkit-appearance:none) {
@@ -439,6 +412,17 @@ main {
     font-size: 225px;
   }
 
+  .contact_items {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  .contact_items .contact_item {
+    margin-bottom: 25px;
+  }
+
 @supports (-webkit-appearance:none) {
 
 }
@@ -452,22 +436,6 @@ main {
     -webkit-transform: scale(0.8);
     -ms-transform: scale(0.8);
     transform: scale(0.8);
-  }
-
-@supports (-webkit-appearance:none) {
-
-}
-}
-
-@media (max-width: 474px) {
-  .number_block {
-    width: 290px;
-    height: 210px;
-    top: 30px;
-  }
-
-  .number_block svg text {
-    font-size: 225px;
   }
 
 @supports (-webkit-appearance:none) {
@@ -497,16 +465,6 @@ main {
   .cashback_block .wrapper .services_review > a {
     width: 250px;
     height: 110px;
-  }
-
-@supports (-webkit-appearance:none) {
-
-}
-}
-
-@media (max-width: 399px) {
-  .number_block {
-    left: 0px;
   }
 
 @supports (-webkit-appearance:none) {

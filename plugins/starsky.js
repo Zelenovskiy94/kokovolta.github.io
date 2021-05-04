@@ -22,18 +22,21 @@ let velocity = { x: 0, y: 0, tx: 0, ty: 0, z: 0.0005 };
 
 let touchInput = false;
 
-if(window.innerWidth > 1000) {
+// if(window.innerWidth > 1000) {
   generate();
   resize();
   step();
-}
+// }
 
 
 window.onresize = resize;
-product_type_ports.onmousemove = onMouseMove;
-product_type_ports.ontouchmove = onTouchMove;
-product_type_ports.ontouchend = onMouseLeave;
-document.onmouseleave = onMouseLeave;
+if(window.innerWidth > 1000) {
+  product_type_ports.onmousemove = onMouseMove;
+  product_type_ports.ontouchmove = onTouchMove;
+  product_type_ports.ontouchend = onMouseLeave;
+  document.onmouseleave = onMouseLeave;
+ }
+
 
 function generate() {
 
@@ -106,7 +109,6 @@ function recycleStar( star ) {
 }
 
 function resize() {
-  console.log(product_type_ports.offsetHeight)
   scale = window.devicePixelRatio || 1;
 
   width = window.innerWidth ;
@@ -125,9 +127,7 @@ function step() {
 
   update();
   render();
-  if(window.innerWidth > 1000) {
     requestAnimationFrame( step );
-  }
 
 }
 

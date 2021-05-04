@@ -1429,6 +1429,10 @@
     display: none;
   }
 
+  .you_get_block .wrapper .you_get_slider {
+    overflow: visible !important;
+  }
+
   .you_get_block .wrapper .you_get_slider .swiper-slide {
     width: 320px;
     height: 320px;
