@@ -1001,9 +1001,8 @@ header .wrap_header__ask--btn button div {
 
 .our_products_block {
   background-color: #2E2E37;
-  -webkit-transform: skewY(-15deg);
-  -ms-transform: skewY(-15deg);
-  transform: skewY(-15deg);
+  -webkit-transform: skewY(-15deg) translateZ(0);
+  transform: skewY(-15deg) translateZ(0);
   z-index: 5;
   position: relative;
   top: -90px;
@@ -1039,9 +1038,8 @@ header .wrap_header__ask--btn button div {
   bottom: -550px;
   width: 100%;
   height: 700px;
-  -webkit-transform: skewY(27deg);
-  -ms-transform: skewY(27deg);
-  transform: skewY(27deg);
+  -webkit-transform: skewY(27deg) translateZ(0);
+  transform: skewY(27deg) translateZ(0);
   background: #222226;
   z-index: 7;
   pointer-events: none;
@@ -1088,11 +1086,6 @@ header .wrap_header__ask--btn button div {
   max-height: 115%;
   height: 115%;
   z-index: -1;
-}
-
-.our_products_block .wrapper .animation_block .animation_rect {
-  -webkit-animation-name: animRect2;
-  animation-name: animRect2;
 }
 
 .our_products_block .wrapper h2 {
@@ -1649,8 +1642,6 @@ header .wrap_header__ask--btn button div {
   position: absolute;
   right: -2px;
   width: 4px;
-  -webkit-animation-name: animRect;
-  animation-name: animRect;
   pointer-events: none;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
@@ -1969,8 +1960,6 @@ footer {
   position: relative;
   z-index: 11;
   background-size: 400% 400%;
-  -webkit-animation: gradient 15s ease infinite;
-  animation: gradient 15s ease infinite;
 }
 
 @-webkit-keyframes gradient {
@@ -2329,6 +2318,27 @@ footer .wrapper .footer_bottom .footer_bot_right img {
 
 @supports (-webkit-appearance:none) {
 
+}
+
+@media (min-width: 600px) {
+  .our_products_block .wrapper .animation_block .animation_rect {
+    -webkit-animation-name: animRect2;
+    animation-name: animRect2;
+  }
+
+  .animation_block .animation_rect {
+    -webkit-animation-name: animRect;
+    animation-name: animRect;
+  }
+
+  footer {
+    -webkit-animation: gradient 15s ease infinite;
+    animation: gradient 15s ease infinite;
+  }
+
+@supports (-webkit-appearance:none) {
+
+}
 }
 
 @media (min-width: 630px) {
@@ -2798,9 +2808,8 @@ footer .wrapper .footer_bottom .footer_bot_right img {
   }
 
   .our_products_block:before {
-    -webkit-transform: skewY(-6deg);
-    -ms-transform: skewY(-6deg);
-    transform: skewY(-6deg);
+    -webkit-transform: skewY(-6deg) translateZ(0);
+    transform: skewY(-6deg) translateZ(0);
   }
 
   .our_products_block:after {
