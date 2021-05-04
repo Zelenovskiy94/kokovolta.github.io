@@ -414,4 +414,11 @@ $(".questions-block").click(function () {
     $(this).children('.questions-block-cont').slideToggle()
 })
 
+function getAndroidVersion(ua) {
+    ua = (ua || navigator.userAgent).toLowerCase(); 
+    var match = ua.match(/android\s([0-9\.]*)/i);
+    return match ? match[1] : undefined;
+};
+alert(getAndroidVersion())
+
 reviewParallax()

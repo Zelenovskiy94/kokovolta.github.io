@@ -1967,6 +1967,8 @@ footer {
   position: relative;
   z-index: 11;
   background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite;
 }
 
 @-webkit-keyframes gradient {
@@ -2331,17 +2333,6 @@ footer .wrapper .footer_bottom .footer_bot_right img {
   .cloud_blue {
     background: url(../img/cloud/cloud_blue.svg) center no-repeat;
   }
-}
-
-@media (min-width: 600px) {
-  footer {
-    -webkit-animation: gradient 15s ease infinite;
-    animation: gradient 15s ease infinite;
-  }
-
-@supports (-webkit-appearance:none) {
-
-}
 }
 
 @media (min-width: 630px) {
