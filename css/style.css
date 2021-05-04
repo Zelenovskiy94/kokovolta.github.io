@@ -1866,13 +1866,13 @@ header .wrap_header__ask--btn button div {
 }
 
 .cloud_mini_purple {
-  background: -o-radial-gradient(50% 50%, 41.76% 41.76%, #FF4BED 0%, rgba(146, 42, 153, 0.3) 100%);
-  background: radial-gradient(41.76% 41.76% at 50% 50%, #FF4BED 0%, rgba(146, 42, 153, 0.3) 100%);
+  background: url(../img/cloud/cloud_blue.svg) center no-repeat;
+  background-size: contain;
 }
 
 .cloud_mini_blue {
-  background: -o-radial-gradient(50% 50%, 41.76% 41.76%, #11C7FE 0%, rgba(16, 200, 255, 0.22) 100%);
-  background: radial-gradient(41.76% 41.76% at 50% 50%, #11C7FE 0%, rgba(16, 200, 255, 0.22) 100%);
+  background: url(../img/cloud/cloud_purple.svg) center no-repeat;
+  background-size: contain;
 }
 
 .cloud_top {
@@ -2324,7 +2324,13 @@ footer .wrapper .footer_bottom .footer_bot_right img {
 }
 
 @supports (-webkit-appearance:none) {
+  .cloud_mini_purple {
+    background: url(../img/cloud/cloud_blue.svg) center no-repeat;
+  }
 
+  .cloud_mini_blue {
+    background: url(../img/cloud/cloud_purple.svg) center no-repeat;
+  }
 }
 
 @media (min-width: 600px) {
@@ -3374,10 +3380,6 @@ footer .wrapper .footer_bottom .footer_bot_right img {
 @media (max-width: 600px) {
   .link_top ul .btn_back {
     display: none;
-  }
-
-  .cloud {
-    display: none !important;
   }
 
   footer .wrapper .footer_top .footer_top_left .footer_logo span {
