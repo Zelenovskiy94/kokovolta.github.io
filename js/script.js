@@ -66,6 +66,7 @@ let reviewParallax = () => {
     let parallax_bouble1 = document.querySelector('.par_bouble_1')
     let parallax_bouble2 = document.querySelector('.par_bouble_2')
     let history_line = document.querySelector('.history_line')
+    let quality_block = document.querySelector('.high_quality_block--charger')
 
     if (reviewPhotos && reviewPhotos.classList.contains('main_page') && window.innerWidth > 1000) {
         $(window).scroll(function () {
@@ -81,6 +82,33 @@ let reviewParallax = () => {
             }
         })
     }
+    if (quality_block && window.innerWidth > 930) {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 4070) {
+                quality_block.classList.add('active')
+            }
+        })        
+    }
+    // if (quality_block && window.innerWidth > 1000) {
+    //     let zxy = 0
+    //     let z = 0
+    //     let y = 0
+    //     let x = 0
+    //     $(window).scroll(function () {
+    //         zxy = -($(this).scrollTop() - 4070) / 8
+    //         y = x = -($(this).scrollTop() - 4070) 
+    //         z = ($(this).scrollTop() - 4070) / 2
+    //         // console.log(zxy, z)
+    //         if ($(this).scrollTop() > 4070) {
+    //             if(zxy <= -50) {
+    //                 zxy = -50
+    //                 quality_block.style.transform = `translate3d(${zxy}px,${zxy}px, ${z}px) translate(${x}px,${y}px)`
+    //             } else {
+    //                 quality_block.style.transform = `translate3d(${zxy}px,${zxy}px, ${z}px) translate(${x}px,${y}px)`
+    //             }
+    //         }
+    //     })
+    // }
     if (kokoTranslate && window.innerWidth > 1050) {
         let x = 0;
         let y = 0;
@@ -425,3 +453,18 @@ if(parseInt(getAndroidVersion(), 10) < 8) {
 
 
 reviewParallax()
+$(document).ready(function() {
+    // $("body").css("display", "none");
+
+    $("body").fadeIn(2000);
+
+	$("a.transition_page").click(function(event){
+		event.preventDefault();
+		linkLocation = this.href;
+		$("body").fadeOut(1000, redirectPage);
+	});
+
+	function redirectPage() {
+		window.location = linkLocation;
+	}
+});

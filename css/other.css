@@ -1103,17 +1103,19 @@ main {
 }
 }
 
-@media (max-width: 1000px) {
-  .history_about_block .par_bouble_2 {
-    display: none;
+@media (max-width: 930px) {
+  .history_about_block .parallax_bouble {
+    width: 90px;
   }
 
-@supports (-webkit-appearance:none) {
+  .history_about_block .par_bouble_1 {
+    top: 200px;
+  }
 
-}
-}
+  .history_about_block .par_bouble_2 {
+    right: -30px;
+  }
 
-@media (max-width: 930px) {
   .history_about_block .wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
@@ -1306,6 +1308,9 @@ main {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
 
   .about_count_block .wrapper .about_count_elem:not(:last-child) {

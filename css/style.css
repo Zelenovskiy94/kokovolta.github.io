@@ -43,6 +43,7 @@
 html {
   position: relative;
   overflow-x: hidden;
+  background-color: #222226;
 }
 
 body {
@@ -50,6 +51,7 @@ body {
   color: #ffffff;
   overflow-x: hidden;
   position: relative;
+  display: none;
 }
 
 p {
