@@ -453,8 +453,10 @@ if(parseInt(getAndroidVersion(), 10) < 8) {
 
 
 reviewParallax()
+
 $(document).ready(function() {
-    // $("body").css("display", "none");
+    $("body").css("display", "none");
+    $("body").css("opacity", "1");
 
     $("body").fadeIn(2000);
 
