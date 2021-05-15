@@ -39,6 +39,22 @@ main {
   margin-top: 40px;
 }
 
+.testdrive_block .video_bg {
+  top: -50px;
+  z-index: -1;
+}
+
+.testdrive_block .video_bg video {
+  z-index: -1;
+}
+
+.testdrive_block .video_bg div {
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: inset 0px 0px 96px 40px #222226;
+  box-shadow: inset 0px 0px 96px 40px #222226;
+  z-index: -1;
+}
+
 .testdrive_block .wrapper h1 {
   max-width: 511px;
 }
@@ -67,6 +83,32 @@ main {
   filter: drop-shadow(0 0 6px #CC2BFF);
   font-size: 600px;
   stroke-width: 6px;
+}
+
+.video_wrap_bg {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  max-width: 1200px;
+  top: 0;
+  right: 0;
+}
+
+.video_wrap_bg video {
+  width: 100%;
+}
+
+.video_wrap_bg div {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: inset 0px 0px 109px 46px #222226;
+  box-shadow: inset 0px 0px 109px 46px #222226;
+  background-color: rgba(255, 255, 255, 0.09);
 }
 
 .delivery_items {
@@ -118,6 +160,17 @@ main {
 
 .cashback_block {
   position: relative;
+}
+
+.cashback_block .video_bg {
+  width: 100%;
+  max-height: 676px;
+}
+
+.cashback_block .video_bg div {
+  background-color: rgba(255, 255, 255, 0.14);
+  -webkit-box-shadow: inset 0px -37px 95px 147px #222226;
+  box-shadow: inset 0px -37px 95px 147px #222226;
 }
 
 .cashback_block .wrapper {
@@ -230,6 +283,10 @@ main {
   max-width: 320px;
 }
 
+.main_track .video_bg div {
+  height: 120%;
+}
+
 @supports (-webkit-appearance:none) {
 
 }
@@ -245,7 +302,36 @@ main {
 }
 }
 
+@media (min-width: 1200px) {
+  .cashback_block .video_bg {
+    right: -200px;
+    left: auto;
+  }
+
+@supports (-webkit-appearance:none) {
+
+}
+}
+
+@media (max-width: 1500px) {
+  .video_wrap_bg {
+    right: -150px;
+  }
+
+@supports (-webkit-appearance:none) {
+
+}
+}
+
 @media (max-width: 1200px) {
+  .testdrive_block .video_bg {
+    top: 0;
+  }
+
+  .testdrive_block .video_bg video {
+    width: 150%;
+  }
+
   .testdrive_block .wrapper .number_block {
     width: 900px;
     height: 440px;
@@ -257,10 +343,27 @@ main {
     font-size: 520px;
   }
 
+  .video_wrap_bg {
+    width: 90%;
+  }
+
+  .cashback_block .video_bg {
+    max-height: 1081px;
+  }
+
+  .cashback_block .video_bg video {
+    left: -30%;
+  }
+
   .cashback_block .wrapper .cashback_card {
     width: 900px;
     top: 100px;
     right: 40px;
+  }
+
+  .main_track .video_bg video {
+    width: auto;
+    left: -30%;
   }
 
 @supports (-webkit-appearance:none) {
@@ -285,6 +388,11 @@ main {
 }
 
 @media (max-width: 830px) {
+  .testdrive_block .wrapper {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
   .testdrive_block .wrapper .number_block {
     position: relative;
     margin: 0 auto;
@@ -307,6 +415,43 @@ main {
 }
 }
 
+@media (max-width: 800px) {
+  .cashback_block .video_bg video {
+    left: -50%;
+  }
+
+  .cashback_block .video_bg div {
+    -webkit-box-shadow: inset 0px -37px 95px 107px #222226;
+    box-shadow: inset 0px -37px 95px 107px #222226;
+  }
+
+@supports (-webkit-appearance:none) {
+
+}
+}
+
+@media (max-width: 770px) {
+  .video_wrap_bg {
+    position: relative;
+    right: auto;
+    width: 100%;
+  }
+
+  .video_wrap_bg div {
+    width: calc(100% + 0.5px);
+    -webkit-box-shadow: inset 0px 0px 103px 20px #222226;
+    box-shadow: inset 0px 0px 103px 20px #222226;
+  }
+
+  .delivery_items {
+    margin-top: 0px;
+  }
+
+@supports (-webkit-appearance:none) {
+
+}
+}
+
 @media (max-width: 700px) {
   .customers_number .wrapper p {
     font-size: 18px;
@@ -320,6 +465,10 @@ main {
     -webkit-transform: scale(0.8);
     -ms-transform: scale(0.8);
     transform: scale(0.8);
+  }
+
+  .main_track .video_bg video {
+    left: -60%;
   }
 
 @supports (-webkit-appearance:none) {
@@ -438,6 +587,21 @@ main {
     transform: scale(0.8);
   }
 
+  .cashback_block .video_bg {
+    max-height: 481px;
+    overflow: hidden;
+  }
+
+  .cashback_block .video_bg video {
+    width: 200%;
+    left: -50%;
+  }
+
+  .cashback_block .video_bg div {
+    -webkit-box-shadow: inset 0px -67px 95px 80px #222226;
+    box-shadow: inset 0px -67px 95px 80px #222226;
+  }
+
 @supports (-webkit-appearance:none) {
 
 }
@@ -465,6 +629,21 @@ main {
   .cashback_block .wrapper .services_review > a {
     width: 250px;
     height: 110px;
+  }
+
+  .main_track .video_bg video {
+    width: 300%;
+    left: -80%;
+  }
+
+@supports (-webkit-appearance:none) {
+
+}
+}
+
+@media (max-width: 399px) {
+  .cashback_block .video_bg {
+    max-height: 360px;
   }
 
 @supports (-webkit-appearance:none) {

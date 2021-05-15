@@ -470,3 +470,78 @@ $(document).ready(function() {
 		window.location = linkLocation;
 	}
 });
+
+
+function increaseCount(a, b) {
+    var input = b.previousElementSibling;
+    var value = parseInt(input.value, 10);
+    value = isNaN(value) ? 0 : value;
+    value++;
+    input.value = value;
+  }
+  
+  function decreaseCount(a, b) {
+    var input = b.nextElementSibling;
+    var value = parseInt(input.value, 10);
+    if (value > 1) {
+      value = isNaN(value) ? 0 : value;
+      value--;
+      input.value = value;
+    }
+  }
+  function showModal(modal) {
+    $(modal).modal({
+        fadeDuration: 100,
+        showClose: false
+      });   
+  }
+  function showModalDiscount(modal, elem) {
+    showModal(modal)
+    
+  }
+
+
+  function changeLabelMessenger (elem) {
+      $(elem).next().children().text(elem.value)
+  }
+
+//   var inputNumber = document.querySelector(".number_phone");
+//   window.intlTelInput(inputNumber, {
+//     // any initialisation options go here
+//   });
+
+var listCountries = $.masksSort($.masksLoad("https://cdn.rawgit.com/andr-04/inputmask-multi/master/data/phone-codes.json"), ['#'], /[0-9]|#/, "mask");
+var maskOpts = {
+    inputmask: {
+        definitions: {
+            '#': {
+                validator: "[0-9]",
+                cardinality: 1
+            }
+        },
+        showMaskOnHover: false,
+        autoUnmask: true,
+        clearMaskOnLostFocus: false
+    },
+    match: /[0-9]/,
+    replace: '#',
+    listKey: "mask"
+};
+
+var maskChangeWorld = function(maskObj, determined) {
+    if (determined) {
+        var hint = maskObj.name_en;
+        if (maskObj.desc_ru && maskObj.desc_en != "") {
+            hint += " (" + maskObj.desc_en + ")";
+        }
+        $(".country_number").html(hint);
+    } else {
+        $(".country_number").html("");
+    }
+}
+$('.number_phone').inputmask("remove");
+
+$('.number_phone').inputmasks($.extend(true, {}, maskOpts, {
+    list: listCountries,
+    onMaskChange: maskChangeWorld
+}));
