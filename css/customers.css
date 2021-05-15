@@ -49,6 +49,7 @@ main {
 }
 
 .testdrive_block .video_bg div {
+  height: 110%;
   background-color: rgba(0, 0, 0, 0.5);
   -webkit-box-shadow: inset 0px 0px 96px 40px #222226;
   box-shadow: inset 0px 0px 96px 40px #222226;
@@ -281,6 +282,15 @@ main {
 .contact_items .contact_item {
   width: auto;
   max-width: 320px;
+}
+
+.contact_main .video_bg div {
+  height: 110%;
+}
+
+.contact_block .wrapper {
+  padding-top: 90px;
+  padding-bottom: 140px;
 }
 
 .main_track .video_bg div {

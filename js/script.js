@@ -70,8 +70,8 @@ let reviewParallax = () => {
 
     if (reviewPhotos && reviewPhotos.classList.contains('main_page') && window.innerWidth > 1000) {
         $(window).scroll(function () {
-            if ($(this).scrollTop() > 2700) {
-                reviewPhotos.style.transform = `translateY(-${($(this).scrollTop() - 2700) / 3}px) translateZ(0)`
+            if ($(this).scrollTop() > 3100) {
+                reviewPhotos.style.transform = `translateY(-${($(this).scrollTop() - 3100) / 3}px) translateZ(0)`
             }
         })
     }
@@ -497,7 +497,7 @@ function increaseCount(a, b) {
   }
   function showModalDiscount(modal, elem) {
     showModal(modal)
-    
+
   }
 
 

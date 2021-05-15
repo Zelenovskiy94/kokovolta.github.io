@@ -14,8 +14,8 @@ main {
 }
 
 .about_top_block .video_bg {
-  width: 80%;
-  left: calc(50% - 80% / 2);
+  width: 100%;
+  left: 0;
 }
 
 .about_top_block .video_bg div {
@@ -1000,11 +1000,6 @@ main {
 }
 
 @media (max-width: 1200px) {
-  .about_top_block .video_bg {
-    width: 100%;
-    left: 0;
-  }
-
   .about_top_block .video_bg video {
     left: calc(100% - 1920px / 1.24);
   }
